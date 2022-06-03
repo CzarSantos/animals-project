@@ -11,6 +11,10 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100;200;400&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <!-- Se o javascript for desabilitado essa classe não será ativada -->
+  <script>
+    document.documentElement.className += ' js';// documentElement
+  </script>
 </head>
 
 <body>
@@ -26,7 +30,7 @@
 
   <section class="grid-section animais" id="animais">
     <h1 class="titulo">Animais fantásticos</h1>
-    <ul class="animais-lista">
+    <ul class="animais-lista js-tabmenu">
       <li>
         <img src="img/imagem1.jpg">
       </li>
@@ -47,7 +51,7 @@
       </li>
     </ul>
 
-    <div class="animais-descricao">
+    <div class="animais-descricao js-tabcontent">
       <section>
         <h2>Raposa</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa neque perspiciatis nulla exercitationem esse hic nisi impedit debitis repudiandae ipsum. Id veritatis at dicta vel!</p>
@@ -122,7 +126,7 @@
   <section class="grid-section faq" id="faq">
     <h1 class="titulo">FAQ</h1>
 
-    <dl class="faq-lista">
+    <dl class="faq-lista js-accordion">
       <!-- dl lista com definiçao -->
       <dt>Qual a idade dos animais?</dt> <!-- dt Termo - Pergunta -->
       <dd>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae obcaecati, consectetur perspiciatis exercitationem iusto, commodi eligendi doloremque, sed pariatur non et ut adipisci hic blanditiis?</dd><!-- dd Descrição -->
