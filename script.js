@@ -28,6 +28,10 @@ tabMenu.forEach((itemMenu, index) => {
 
 }
 
+
+
+//ACCORDION-------------------------------------------------------------------------
+
 initTabNav();
 
 
@@ -55,3 +59,55 @@ accordionList.forEach((item) =>{
 }
 
 initAccordion();
+
+
+//SCROLL-------------------------------------------------------------------------
+
+function initScrollSuave(){
+
+const linksInternos = document.querySelectorAll('.js-menu a[href^="#"]')
+
+function scrollToSection(event){
+  //previnir o padrão | Remove ação da ancora 
+  event.preventDefault()
+
+  //currentTarget retorna o que foi clicado | getAttribute - retorna atributo passado
+  const href = event.currentTarget.getAttribute('href') //#faq
+
+   // Retorna elementos com #faq
+  const section = document.querySelector(href)
+
+
+//ScrollIntoView - Leva até o elemento | Permite escolher posição final 
+section.scrollIntoView({
+  behavior: 'smooth',
+  block: 'start',
+})
+
+
+/*   
+//Srcll Como Objeto---------------------------------
+//pega a distancia do topo
+  const topo = section.offsetTop
+
+    //objeto
+    window.scrollTo({
+      top: topo,
+      behavior: 'smooth',
+  }) */
+
+/*   
+
+//Scrrol até distancia | Padrão -----------------------
+  window.scrollTo(0, topo) */
+
+
+}
+
+linksInternos.forEach((link) =>{
+  link.addEventListener('click', scrollToSection)
+})
+
+}
+
+initScrollSuave();
