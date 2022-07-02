@@ -85,23 +85,6 @@ section.scrollIntoView({
 })
 
 
-/*   
-//Srcll Como Objeto---------------------------------
-//pega a distancia do topo
-  const topo = section.offsetTop
-
-    //objeto
-    window.scrollTo({
-      top: topo,
-      behavior: 'smooth',
-  }) */
-
-/*   
-
-//Scrrol até distancia | Padrão -----------------------
-  window.scrollTo(0, topo) */
-
-
 }
 
 linksInternos.forEach((link) =>{
@@ -111,3 +94,41 @@ linksInternos.forEach((link) =>{
 }
 
 initScrollSuave();
+
+
+
+//ANIMAÇÃO AO SCROLL
+
+
+function initAnimacaoScroll(){//agrupa para organização
+
+const sections = document.querySelectorAll('.js-scroll')
+
+if(sections.length){ //verifica se sections tem item(se existir)
+
+const windowMetade = window.innerHeight * 0.6; //o tamanho da tela * 0.6 : um pouco mais da metada da janela | 60%
+
+function animaScroll(){
+  //distancia de cada elemento do top
+  //Método 'getbound' - Retorna distancias e tamanhos
+  sections.forEach((section) =>{
+    const sectionTop = section.getBoundingClientRect().top;
+
+    //Pega a distacia do topo do display para o elemento | Subtrai 60% para cima(será referente a '0' agora) | Quando for menor que zero(passou da marcação) | insere a classe.
+    const isSectionVisible = (sectionTop - windowMetade) < 0; /* True or false */
+    if(isSectionVisible)
+      section.classList.add('ativo')
+    else
+      section.classList.remove('ativo')
+  })
+}
+
+animaScroll()
+
+window.addEventListener('scroll', animaScroll)
+
+}
+
+}
+
+initAnimacaoScroll()
